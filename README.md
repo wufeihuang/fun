@@ -39,4 +39,10 @@
 - postcss-loader
 - autoprefixer
 
-- browserslist
+- browserslist - https://github.com/browserslist/browserslist
+
+## 支持 react
+
+- @babel/react
+- react
+- react-dom

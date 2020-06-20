@@ -1,18 +1,37 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import './styles/index.scss'
 
-class App {
-  firstName = 'Wow'
+// class App {
+//   firstName = 'Wow'
 
-  constructor() {
-    // this.firstName = 'Wow'
-    this.lastName = 'World'
+//   constructor() {
+//     // this.firstName = 'Wow'
+//     this.lastName = 'World'
+//   }
+
+//   sayHi() {
+//     console.log(`Hello, ${this.firstName} ${this.lastName}`)
+//   }
+// }
+
+// const app = new App()
+
+// app.sayHi()
+
+class App extends React.Component {
+  state = {
+    name: 'Wow'
   }
 
-  sayHi() {
-    console.log(`Hello, ${this.firstName} ${this.lastName}`)
+  render () {
+    return (
+      <div>
+        Hello, {this.state.name}!
+      </div>
+    )
   }
 }
 
-const app = new App()
-
-app.sayHi()
+ReactDOM.render(<App />, document.getElementById('root'))
