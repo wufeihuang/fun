@@ -1,0 +1,11 @@
+@import './reset.scss';
+
+body {
+  color: skyblue;
+}
+
+div {
+  transform: skewX(-30deg);
+  display: flex;
+  justify-content: center;
+}
