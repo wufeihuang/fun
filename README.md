@@ -46,3 +46,8 @@
 - @babel/react
 - react
 - react-dom
+
+## 模块热加载
+
+- react-hot-loader
+- @hot-loader/react-dom

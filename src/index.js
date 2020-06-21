@@ -1,24 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {hot} from 'react-hot-loader/root'
 
 import './styles/index.scss'
-
-// class App {
-//   firstName = 'Wow'
-
-//   constructor() {
-//     // this.firstName = 'Wow'
-//     this.lastName = 'World'
-//   }
-
-//   sayHi() {
-//     console.log(`Hello, ${this.firstName} ${this.lastName}`)
-//   }
-// }
-
-// const app = new App()
-
-// app.sayHi()
 
 class App extends React.Component {
   state = {
@@ -34,4 +18,8 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const render = (Component) => {
+  ReactDOM.render(<Component />, document.getElementById('root'))
+}
+
+render(hot(App))
