@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // https://github.com/jantimon/html-webpack-plugin
-const {CleanWebpackPlugin} = require('clean-webpack-plugin') // https://github.com/johnagan/clean-webpack-plugin
 
 const port = process.env.PORT || 3000
 
@@ -56,7 +55,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // Prints more readable module names in the browser terminal on HMR updates
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
