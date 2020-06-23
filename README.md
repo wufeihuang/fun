@@ -52,8 +52,14 @@
 - react-hot-loader
 - @hot-loader/react-dom
 
-## 基于路由的动态加载
+## 代码分割 - 基于路由的动态加载
 
 - react-router-dom
 - react-delay-render 延迟加载 
-- react-imported-component 动态加载
+- react-imported-compent 动态加载
+
+## 代码分割 - 代码分开打包
+
+- entry 多入口
+- optimization.splitChunks.cacheGroups
+

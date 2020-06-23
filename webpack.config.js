@@ -7,7 +7,10 @@ const port = process.env.PORT || 3000
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    vendor: ['react', 'react-dom', 'react-router-dom'],
+    app: './src/index.js'
+  },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -57,5 +60,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          test: 'vendor',
+          name: 'vendor',
+          enforce: true
+        }
+      }
+    }
+  }
 }
