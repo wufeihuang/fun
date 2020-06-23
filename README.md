@@ -51,3 +51,9 @@
 
 - react-hot-loader
 - @hot-loader/react-dom
+
+## 基于路由的动态加载
+
+- react-router-dom
+- react-delay-render 延迟加载 
+- react-imported-component 动态加载

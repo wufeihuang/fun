@@ -9,14 +9,18 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'bundle.[hash].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/', //  Hot reloading won’t work as expected for nested routes without it
   },
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom', // replaces react-dom with the custom react-dom from hot-loader
-    }
+    },
+    extensions: [
+      '.js',
+      '.jsx',
+    ]
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -29,7 +33,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
