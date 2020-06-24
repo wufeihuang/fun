@@ -1,0 +1,20 @@
+@import './reset.scss';
+
+body {
+  color: skyblue;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+  li {
+    margin: 10px;
+    list-style: none;
+  }
+}
+
+.main {
+  width: 80%;
+  margin: 20px auto;
+}
