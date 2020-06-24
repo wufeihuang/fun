@@ -2,35 +2,23 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // https://github.com/jantimon/html-webpack-plugin
 
-const port = process.env.PORT || 3000
+const {appEntry, outputPath} = require('./common-paths')
 
-module.exports = {
-  mode: 'development',
+const config = {
   entry: {
     vendor: ['react', 'react-dom', 'react-router-dom'],
-    app: './src/index.js'
+    app: `${appEntry}/index.js`
   },
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    // filename: '[name].[hash].js',
+    path: outputPath,
     publicPath: '/', //  Hot reloading won’t work as expected for nested routes without it
   },
   resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom', // replaces react-dom with the custom react-dom from hot-loader
-    },
     extensions: [
       '.js',
       '.jsx',
     ]
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    host: 'localhost',
-    port,
-    historyApiFallback: true,
-    // open: true
-    hot: true, // Enable HMR on the server
   },
   module: {
     rules: [
@@ -38,23 +26,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
-      },
-      {
-        test: /\.s?css$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader'
-          },
-          'postcss-loader',
-          'sass-loader',
-        ],
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(), // Prints more readable module names in the browser terminal on HMR updates
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
@@ -72,3 +47,5 @@ module.exports = {
     }
   }
 }
+
+module.exports = config
