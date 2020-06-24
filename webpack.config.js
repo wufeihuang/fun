@@ -1,4 +1,5 @@
 const webpackMerge = require('webpack-merge')
+const chalk = require('chalk')
 
 const buildValidations = require('./build-utils/build-validations')
 const commonConfig = require('./build-utils/webpack.common')
@@ -13,10 +14,13 @@ const addons = (/* string | string[] */ addonsArg) => {
   return addons.map(addonName => require(`./build-utils/addons/webpack.${addonName}`))
 }
 
+
 module.exports = env => {
   if (!env) {
     throw new Error(buildValidations.ERR_NO_ENV_FLAG)
   }
+
+  console.log(chalk.red(JSON.stringify(env)))
 
   const envConfig = require(`./build-utils/webpack.${env.env}.js`)
 

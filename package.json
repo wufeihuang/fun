@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --env.env=dev",
+    "dev:bundleanalyzer": "npm start -- --env.addons=bundleanalyzer",
     "prebuild": "rimraf dist",
-    "build": "webpack --env.env=prod"
+    "build": "webpack --env.env=prod",
+    "build:bundleanalyzer": "npm run build -- --env.addons=bundleanalyzer"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +34,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"

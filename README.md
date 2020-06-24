@@ -75,3 +75,7 @@
 - chalk - 终端打印颜色
 - webpack 环境变量配置 - https://webpack.js.org/guides/environment-variables/
 - webpack 支持函数配置，其中第一个参数为命令行传入的env变量 https://webpack.js.org/configuration/configuration-types/#exporting-a-function
+
+## 打包结果可视化分析
+
+- webapck-bundle-analyzer
